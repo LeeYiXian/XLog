@@ -46,7 +46,8 @@ std::string XLog::GenerateLogFileName() {
 
 	std::stringstream ss;
 	ss << "./log/log_"
-		<< std::put_time(now_tm, "%m_%d_%H_%M_%S");
+		<< std::put_time(now_tm, "%m_%d_%H_%M_%S")
+		<< ".txt";
 
 	std::string logDir = "./log";
 	if (!std::filesystem::exists(logDir)) {
