@@ -35,6 +35,8 @@ public:
 
 	void log(const std::string& message);
 
+	std::string GetTimestamp();
+
 private:
 	std::ofstream logFile;
 	static Level LogLevel;

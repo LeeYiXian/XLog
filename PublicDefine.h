@@ -7,7 +7,7 @@
         if (XLog::GetInstance()->GetLogLevel() <= XLog::DEBUG) { \
             char buffer[256]; \
             sprintf(buffer, format, __VA_ARGS__); \
-            XLog::GetInstance()->log("DEBUG: " + std::string(buffer)); \
+            XLog::GetInstance()->log("[DEBUG]["+ XLog::GetInstance()->GetTimestamp() + "]" + std::string(buffer)); \
         } \
     } while (0)
 
@@ -16,7 +16,7 @@
         if (XLog::GetInstance()->GetLogLevel() <= XLog::INFO) { \
             char buffer[256]; \
             sprintf(buffer, format, __VA_ARGS__); \
-            XLog::GetInstance()->log("INFO: " + std::string(buffer)); \
+            XLog::GetInstance()->log("[INFO]["+ XLog::GetInstance()->GetTimestamp() + "]" +std::string(buffer)); \
         } \
     } while (0)
 
@@ -25,6 +25,6 @@
         if (XLog::GetInstance()->GetLogLevel() <= XLog::ERROR) { \
             char buffer[256]; \
             sprintf(buffer, format, __VA_ARGS__); \
-            XLog::GetInstance()->log("ERROR: " + std::string(buffer)); \
+            XLog::GetInstance()->log("[ERROR][" + XLog::GetInstance()->GetTimestamp() + "]" + std::string(buffer)); \
         } \
     } while (0)

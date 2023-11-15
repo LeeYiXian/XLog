@@ -63,3 +63,13 @@ void XLog::log(const std::string& message) {
 	}
 }
 
+std::string XLog::GetTimestamp() {
+	auto now = std::chrono::system_clock::now();
+	auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) % 1000;
+	auto timer = std::chrono::system_clock::to_time_t(now);
+	std::tm bt = *std::localtime(&timer);
+	char timestamp[24];
+	std::strftime(timestamp, sizeof(timestamp), "%m-%d %H:%M:%S", &bt);
+	return std::string(timestamp) + "." + std::to_string(ms.count());
+}
+
